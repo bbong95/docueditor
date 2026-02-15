@@ -1,0 +1,38 @@
+# 🔗 Integration Test Plan
+
+## 1. Objective
+Verify that interacting modules work together seamlessly, specifically the data flow between UI, Store, and Agents.
+
+## 2. Scope
+- **User Flows**: Upload -> Edit -> Export.
+- **Agent Triggers**: State change in Store -> Visual change in Agent.
+- **PDF Export**: Canvas data -> jsPDF -> File Download.
+
+## 3. Test Scenarios
+
+### 3.1 The "Upload Flow"
+1. **User Action**: Drops a PDF file into [StudioLayout](file:///c:/dev/docueditor/src/components/layout/StudioLayout.tsx#15-51).
+2. **System**:
+   - [handleFileUpload](file:///c:/dev/docueditor/src/store/useEditorStore.ts#40-48) triggers [setIsUploading(true)](file:///c:/dev/docueditor/src/store/useEditorStore.ts#54-55).
+   - **Integration Check**: [DistributedAgents](file:///c:/dev/docueditor/src/components/DistributedAgents.tsx#8-105) receives `true` and Developer Agent starts `jump-spin`.
+   - `pdfUtils` converts PDF -> Images.
+   - Store updates `pages`.
+   - [setIsUploading(false)](file:///c:/dev/docueditor/src/store/useEditorStore.ts#54-55).
+   - **Integration Check**: Developer Agent stops animation.
+   - UI renders page thumbnails.
+
+### 3.2 The "Export Flow"
+1. **User Action**: Clicks "Download PDF".
+2. **System**:
+   - [triggerExport](file:///c:/dev/docueditor/src/store/useEditorStore.ts#114-115) updates store.
+   - [SlideEditor](file:///c:/dev/docueditor/src/components/SlideEditor.tsx#25-675) detects trigger, sets [setIsExporting(true)](file:///c:/dev/docueditor/src/store/useEditorStore.ts#55-56).
+   - **Integration Check**: [DistributedAgents](file:///c:/dev/docueditor/src/components/DistributedAgents.tsx#8-105) receives `true`, Analyst Agent starts `jump-spin`.
+   - PDF Generation (jsPDF) executes.
+   - [setIsExporting(false)](file:///c:/dev/docueditor/src/store/useEditorStore.ts#55-56).
+   - **Integration Check**: Analyst stops animation.
+   - **Integration Check**: `AnalystReportModal` appears (New Feature).
+
+## 4. Tools & Environment
+- **Environment**: Local Dev (`npm run dev`) / Staging (Vercel).
+- **Manual Verification**: User Checklist.
+- **Automated**: Cypress / Playwright (Future Scope).

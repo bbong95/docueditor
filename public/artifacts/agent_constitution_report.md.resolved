@@ -1,0 +1,91 @@
+# 📑 에이전트 구성 및 AI 모델 운용 보고서 (Agent Constitution & Model Operation Report)
+
+사용자님의 요청에 따라 현재 세션을 구동하는 **Antigravity Agent**의 구성(Constitution), **AI 모델 아키텍처**, 그리고 **스킬(Skill) 운용 전략**에 대해 상세히 보고합니다.
+
+---
+
+## 1. 에이전트 구성 (Agent Constitution)
+
+현재 시스템은 단순한 LLM 질의응답 시스템이 아닌, **"계획-실행-검증(Plan-Execute-Verify)"** 루프를 가진 자율형 에이전트 **Antigravity**로 구성되어 있습니다.
+
+### 👤 Persona & Role
+*   **Name**: Antigravity
+*   **Identity**: Advanced Agentic Coding Assistant (Google Deepmind Team)
+*   **Core Philosophy**:
+    *   **Proactive**: 사용자의 의도를 파악하고 선제적으로 제안 및 실행.
+    *   **Autonomous**: 복잡한 작업을 스스로 작은 단위로 분해(Decomposition)하여 순차적으로 해결.
+    *   **Rigorous**: 모든 코드 변경에 대해 계획(Plan)을 수립하고, 실행 후 검증(Verification)을 거침.
+
+### 🔄 System Architecture (Internal Communication)
+시스템 내부 컴포넌트 간의 통신은 영어(English) 프로토콜을 따릅니다.
+
+> **System Protocol Overview:**
+> 1.  **User Request** (Korean/Native) -> *Translated/Parsed* -> **Planning Agent**
+> 2.  **Planning Agent** (Codex 5.3) analyzes context and creates [task.md](file:///C:/Users/bbong/.gemini/antigravity/brain/6d14134a-8d45-472a-8fe3-4049883fb2af/task.md).
+> 3.  **Execution Agent** (Codex/Gemini) selects tools based on [implementation_plan.md](file:///C:/Users/bbong/.gemini/antigravity/brain/6d14134a-8d45-472a-8fe3-4049883fb2af/implementation_plan.md).
+> 4.  **Tool Output** -> *Feedback Loop* -> **Verification Agent** checks results.
+> 5.  **Final Report** -> *Translated/Formatted* -> **User Notification** (Korean).
+
+---
+
+## 2. AI 모델 아키텍처 및 Fallback 전략 (AI Model Architecture & Fallback Strategy)
+
+본 프로젝트는 작업의 종류에 따라 최적의 모델을 배정하는 **Multi-Model Routing** 시스템을 차용하고 있습니다. 특히 Claude 모델의 가용성 이슈에 대비하여 **Fallback(대체)** 메커니즘이 [GEMINI.md](file:///C:/Users/bbong/.gemini/GEMINI.md)에 공식적으로 정의되었습니다.
+
+### 🧠 Model Hierarchy (Updated)
+
+| Role | Primary Model | Capability & Specialty | Fallback Model 🛡️ |
+| :--- | :--- | :--- | :--- |
+| **Lead Architect** | **Codex 5.3** | **Architecture, Complex Logic, System Design** | *(Self-Reliant)* |
+| Creative Director | **Claude Sonnet 4.5** | UI/UX Design, CSS Styling, Animations | **Gemini 3 Pro (High)** |
+| Deep Reasoner | **Claude Opus 4.5** | Enterprise Architecture, Root Cause Analysis | **Codex 5.3** |
+| Strategic Planner | **Gemini 3 Pro** | Roadmap, High-level Strategy, Review | *(Redundant)* |
+| Fast Executor | **Gemini 3 Flash** | Simple Refactoring, Context Maintenance | *(N/A)* |
+
+### 🛡️ Fallback Scenario
+만약 `Claude` 계열 모델이 API 오류, 속도 저하, 또는 접근 제한 상태일 경우, 시스템은 즉시 다음과 같이 동작합니다:
+
+1.  **UI/UX 작업 (Creative)**:
+    *   Original: `Claude Sonnet 4.5`
+    *   Fallback: `Gemini 3 Pro (High)`
+    *   *Reasoning*: Gemini 3 Pro는 멀티모달 이해력과 창의적인 텍스트 생성 능력이 뛰어나 Claude Sonnet의 역할을 충분히 수행할 수 있습니다.
+
+2.  **심층 추론 (Deep Reasoning)**:
+    *   Original: `Claude Opus 4.5`
+    *   Fallback: `Codex 5.3`
+    *   *Reasoning*: Codex 5.3은 코드 로직과 시스템 설계에 특화된 모델로, Opus 수준의 논리적 깊이를 코드 관점에서 대체할 수 있습니다.
+
+---
+
+## 3. 활성 스킬 및 도구 운용 (Active Skills & Tool Usage)
+
+에이전트는 수백 개의 스킬 라이브러리 중 현재 프로젝트(`docueditor`)의 맥락에 맞는 스킬을 선별하여 로드합니다.
+
+### 🛠️ Key Active Skills
+현재 세션에서 주로 활용되는 핵심 스킬 그룹입니다.
+
+#### A. Frontend Engineering (React & UI)
+*   **`react-modernization`**: React 19의 최신 기능(Hooks, Server Components 등)을 적극 활용합니다.
+*   **`tailwind-patterns`**: Utility-first CSS의 유지보수성을 높이는 패턴을 적용합니다.
+*   **`ui-ux-designer`**: 사용자 경험을 고려한 인터페이스 설계를 주도합니다.
+
+#### B. 3D & Visualization (Specialized)
+*   **`3d-web-experience`**: `Three.js`와 `React Three Fiber`를 사용하여 `AgentOffice3D`와 같은 몰입형 환경을 구축합니다.
+*   **`recharts-viz`** (implied): 데이터 시각화 요구사항 발생 시 자동으로 로드됩니다.
+
+#### C. Engineering Fundamentals
+*   **`clean-code`**: "읽기 쉬운 코드가 작동하는 코드보다 중요하다"는 원칙 하에 리팩토링을 수행합니다.
+*   **`git-master`**: 커밋 메시지 컨벤션을 준수하고 안전한 브랜치 전략을 사용합니다.
+*   **`debug-agent`**: 에러 발생 시 로그를 분석하고 근본 원인을 추적합니다.
+
+### 🗣️ Skill-to-Agent Communication
+스킬은 에이전트에게 "어떻게 행동해야 하는지"를 영어로 지시합니다.
+
+> *Example (Internal Instruction from `clean-code` skill):*
+> "When refactoring, prioritize readability over brevity. Always decouple large components into smaller, reusable hooks or sub-components. functions should do one thing only."
+
+---
+
+## 요약 (Summary)
+
+현재 **Antigravity** 시스템은 **Codex 5.3**을 리드 아키텍트로 하여 안정적인 개발을 주도하고 있습니다. 사용자님의 요청에 따라 **Claude** 모델의 가용성 문제를 해결하기 위해 **Gemini 3 Pro**와 **Codex 5.3**을 공식적인 **Fallback** 모델로 지정 완료했습니다. 이를 통해 어떤 상황에서도 끊김 없는 고품질의 개발 지원이 가능합니다.

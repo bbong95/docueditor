@@ -1,0 +1,214 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "main_title",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "text": "상태 관리 흐름 (State Flow)",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "strokeColor": "#0f172a",
+      "width": 800,
+      "height": 40
+    },
+    {
+      "id": "s0",
+      "type": "rectangle",
+      "x": 150,
+      "y": 300,
+      "width": 200,
+      "height": 100,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#f1f5f9",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t0",
+      "type": "text",
+      "x": 160,
+      "y": 337,
+      "width": 180,
+      "height": 26,
+      "text": "Idle",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "a0",
+      "type": "arrow",
+      "x": 350,
+      "y": 350,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "s1",
+      "type": "rectangle",
+      "x": 400,
+      "y": 300,
+      "width": 200,
+      "height": 100,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "x": 410,
+      "y": 337,
+      "width": 180,
+      "height": 26,
+      "text": "Loading",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "a1",
+      "type": "arrow",
+      "x": 600,
+      "y": 350,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "s2",
+      "type": "rectangle",
+      "x": 650,
+      "y": 300,
+      "width": 200,
+      "height": 100,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dcfce7",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "x": 660,
+      "y": 337,
+      "width": 180,
+      "height": 26,
+      "text": "Success",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "a2",
+      "type": "arrow",
+      "x": 850,
+      "y": 350,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          50,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "s3",
+      "type": "rectangle",
+      "x": 900,
+      "y": 300,
+      "width": 200,
+      "height": 100,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fefce8",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "x": 910,
+      "y": 337,
+      "width": 180,
+      "height": 26,
+      "text": "Error",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": 20
+  }
+}

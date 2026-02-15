@@ -1,0 +1,161 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "main_title",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "text": "정보 구조도 (IA)",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "strokeColor": "#0f172a",
+      "width": 800,
+      "height": 40
+    },
+    {
+      "id": "root",
+      "type": "rectangle",
+      "x": 500,
+      "y": 100,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fefce8",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_root",
+      "type": "text",
+      "x": 510,
+      "y": 128.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Root",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "ed",
+      "type": "rectangle",
+      "x": 300,
+      "y": 250,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_ed",
+      "type": "text",
+      "x": 310,
+      "y": 278.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Editor",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "pt",
+      "type": "rectangle",
+      "x": 700,
+      "y": 250,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fce7f3",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_pt",
+      "type": "text",
+      "x": 710,
+      "y": 278.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Portal",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "l1",
+      "type": "arrow",
+      "x": 600,
+      "y": 180,
+      "width": 200,
+      "height": 70,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -200,
+          70
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "l2",
+      "type": "arrow",
+      "x": 600,
+      "y": 180,
+      "width": 200,
+      "height": 70,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          200,
+          70
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": 20
+  }
+}

@@ -1,0 +1,53 @@
+teams:
+  command:
+    model: codex-5.3
+    priority: critical
+    skills:
+      - autopilot
+      - ralph
+      - team
+      - plan
+      - orchestrate
+  
+  explore:
+    model: gemini-3.0-pro
+    priority: high
+    skills:
+      - analyze
+      - research
+      - deepsearch
+      - architecture
+      - architect-review
+  
+  build:
+    model: gemini-3.0-flash
+    priority: high
+    parallel: true
+    skills:
+      - frontend-*
+      - backend-*
+      - ai-engineer
+      - api-*
+      - database-*
+  
+  verify:
+    model: codex-5.3
+    priority: critical
+    parallel: true
+    skills:
+      - tdd
+      - test-*
+      - code-review
+      - security-review
+      - error-*
+  
+  auto:
+    model: gemini-3.0-flash
+    priority: low
+    parallel: true
+    skills:
+      - devops-*
+      - automation-*
+      - doc-*
+      - marketing-*
+      - seo-*

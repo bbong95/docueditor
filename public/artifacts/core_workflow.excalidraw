@@ -1,0 +1,161 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "main_title",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "text": "핵심 워크플로우 (Core Workflow)",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "strokeColor": "#0f172a",
+      "width": 800,
+      "height": 40
+    },
+    {
+      "id": "s1",
+      "type": "rectangle",
+      "x": 500,
+      "y": 150,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t1",
+      "type": "text",
+      "x": 510,
+      "y": 178.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Start",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "s2",
+      "type": "rectangle",
+      "x": 500,
+      "y": 300,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dcfce7",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t2",
+      "type": "text",
+      "x": 510,
+      "y": 328.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Work",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "s3",
+      "type": "rectangle",
+      "x": 500,
+      "y": 450,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fefce8",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t3",
+      "type": "text",
+      "x": 510,
+      "y": 478.3,
+      "width": 180,
+      "height": 23.400000000000002,
+      "text": "Finish",
+      "fontSize": 18,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "a1",
+      "type": "arrow",
+      "x": 600,
+      "y": 230,
+      "width": 0,
+      "height": 70,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          70
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "a2",
+      "type": "arrow",
+      "x": 600,
+      "y": 380,
+      "width": 0,
+      "height": 70,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          70
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": 20
+  }
+}

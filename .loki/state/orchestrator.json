@@ -1,0 +1,31 @@
+{
+    "project": "docueditor",
+    "phase": "maintenance",
+    "status": "idle",
+    "teams": {
+        "command": {
+            "status": "idle",
+            "current_task": null
+        },
+        "explore": {
+            "status": "idle",
+            "current_task": null
+        },
+        "build": {
+            "status": "idle",
+            "current_task": null
+        },
+        "verify": {
+            "status": "idle",
+            "current_task": null
+        },
+        "auto": {
+            "status": "idle",
+            "current_task": null
+        }
+    },
+    "metrics": {
+        "parallelism": 0,
+        "completed_tasks": 4
+    }
+}

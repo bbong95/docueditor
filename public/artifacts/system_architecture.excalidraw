@@ -1,0 +1,210 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "main_title",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "text": "시스템 아키텍처 (System Architecture)",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "strokeColor": "#0f172a",
+      "width": 800,
+      "height": 40
+    },
+    {
+      "id": "layer_client",
+      "type": "rectangle",
+      "x": 50,
+      "y": 120,
+      "width": 1100,
+      "height": 150,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#f8fafc",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_client",
+      "type": "text",
+      "x": 75,
+      "y": 139.6,
+      "width": 150,
+      "height": 20.8,
+      "text": "Client Layer",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "box_ui",
+      "type": "rectangle",
+      "x": 100,
+      "y": 170,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dbeafe",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_ui",
+      "type": "text",
+      "x": 110,
+      "y": 189.2,
+      "width": 180,
+      "height": 41.6,
+      "text": "React UI\n(Components)",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "box_store",
+      "type": "rectangle",
+      "x": 350,
+      "y": 170,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dcfce7",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_store",
+      "type": "text",
+      "x": 360,
+      "y": 189.2,
+      "width": 180,
+      "height": 41.6,
+      "text": "Zustand Store\n(State)",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "layer_svc",
+      "type": "rectangle",
+      "x": 50,
+      "y": 300,
+      "width": 1100,
+      "height": 150,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#f1f5f9",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_svc",
+      "type": "text",
+      "x": 75,
+      "y": 319.6,
+      "width": 150,
+      "height": 20.8,
+      "text": "Service Layer",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "box_ocr",
+      "type": "rectangle",
+      "x": 200,
+      "y": 350,
+      "width": 250,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fefce8",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_ocr",
+      "type": "text",
+      "x": 225,
+      "y": 369.2,
+      "width": 200,
+      "height": 41.6,
+      "text": "OCR Service\n(Hybrid)",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "box_export",
+      "type": "rectangle",
+      "x": 500,
+      "y": 350,
+      "width": 250,
+      "height": 80,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#fce7f3",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "t_export",
+      "type": "text",
+      "x": 525,
+      "y": 369.2,
+      "width": 200,
+      "height": 41.6,
+      "text": "Export Engine\n(PPTX/PDF)",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": 20
+  }
+}

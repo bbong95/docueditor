@@ -1,0 +1,43 @@
+graph TD
+    subgraph Squad ["Distributed Agent Squad"]
+        style Squad fill:#f9f9f9,stroke:#333,stroke-width:2px
+        
+        Arch[("👑 Architect\n(Lead/Strategy)")]
+        Des[("🎨 Designer\n(UI/UX/Style)")]
+        Dev[("👷 Developer\n(Core/Logic)")]
+        Ana[("🕵️ Analyst\n(QA/Report)")]
+        
+        style Arch fill:#dbeafe,stroke:#2563eb
+        style Des fill:#fce7f3,stroke:#db2777
+        style Dev fill:#ffedd5,stroke:#ea580c
+        style Ana fill:#ede9fe,stroke:#7c3aed
+    end
+
+    subgraph Skills ["Global Skill Set"]
+        CodeWiki["CodeWiki\n(Doc Gen)"]
+        TDD["TDD-Workflow\n(Testing)"]
+        Viz["Excalidraw-Viz\n(Diagrams)"]
+        Git["Git-Flow\n(Version Control)"]
+    end
+
+    subgraph Actions ["Triggered Actions"]
+        Up["File Upload"]
+        Edit["Text Editing"]
+        Exp["Export/Download"]
+        Rep["Quality Report"]
+    end
+
+    Up --> Dev
+    Edit --> Des
+    Exp --> Arch
+    Exp --> Ana
+    Rep --> Ana
+
+    Arch -->|Orchestrates| Dev
+    Arch -->|Orchestrates| Des
+    Arch -->|Orchestrates| Ana
+
+    Dev -.->|Uses| CodeWiki
+    Dev -.->|Uses| Git
+    Des -.->|Uses| Viz
+    Ana -.->|Uses| TDD

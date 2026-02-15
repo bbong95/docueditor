@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant User
+    participant UI as DocuEditor UI
+    participant Agent as Agent Squad
+    participant Core as Processing Core
+    participant Export as Export Engine
+
+    User->>UI: Upload PDF/Image
+    UI->>Agent: Trigger "Developer" (Upload)
+    Agent->>Agent: Developer: Jump-Spin Animation
+    
+    UI->>Core: Convert PDF to Images
+    Core->>Core: Extract Text (OCR)
+    Core-->>UI: Return Images & Text Boxes
+    
+    User->>UI: Edit Text / Style
+    UI->>Agent: Trigger "Designer" (Edit)
+    Agent->>Agent: Designer: Jump-Spin Animation
+    
+    User->>UI: Click "Download PDF"
+    UI->>Agent: Trigger "Architect" & "Analyst"
+    Agent->>Agent: Architect: Supervising
+    Agent->>Agent: Analyst: QA Inspection (Jump-Spin)
+    
+    UI->>Export: Generate PDF
+    Export-->>User: Download File
+    
+    Note over Agent: Download Complete
+    Agent->>UI: Analyst Stops Animation
+    Agent->>UI: Show "Quality Report" Modal

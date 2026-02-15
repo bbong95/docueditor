@@ -1,0 +1,28 @@
+# 🛠️ Codebase Optimization & Performance Audit Report
+
+## 1. Static Code Analysis (Clean Code)
+- **State Management (`useEditorStore`)**: Zustand stores state efficiently, but `canvasScale` and `isPanning` updates might trigger excessive re-renders in [Preview.tsx](file:///c:/dev/docueditor/src/components/Preview.tsx).
+    - *Optimization*: Use `useShallow` or granular selectors for high-frequency updates.
+- **Component Complexity ([App.tsx](file:///c:/dev/docueditor/src/App.tsx))**: The main [App](file:///c:/dev/docueditor/src/App.tsx#14-112) component is becoming monolithic.
+    - *Refactor*: Extract `SidebarNav`, `ChatPanel`, and [AgentOffice3D](file:///c:/dev/docueditor/src/components/AgentOffice3D.tsx#235-275) wrapper logic into a `Layout` component.
+- **OCR Service ([ocrService.ts](file:///c:/dev/docueditor/src/services/ocrService.ts))**: `Tesseract.js` worker creation might be expensive if initialized on every request.
+    - *Improvement*: Implement a Singleton Worker pattern or reuse workers.
+
+## 2. Performance Profiling (Web Vitals)
+- **LCP (Largest Contentful Paint)**: [AgentOffice3D](file:///c:/dev/docueditor/src/components/AgentOffice3D.tsx#235-275) loads 3D models and textures, which may block the main thread.
+    - *Fix*: Implement `React.lazy` and `<Suspense>` for [AgentOffice3D](file:///c:/dev/docueditor/src/components/AgentOffice3D.tsx#235-275).
+    - *Fix*: Use `gltf-pipeline` to compress 3D assets (Draco compression).
+- **CLS (Cumulative Layout Shift)**: The chat panel toggle might cause layout shifts on mobile.
+    - *Fix*: Reserve space for the panel or use `position: fixed` overlay properly.
+
+## 3. Security Vulnerability Scan (Security Audit)
+- **Input Validation**: Text inputs in the editor are directly rendered on the Canvas.
+    - *Risk*: Potential XSS if malicious scripts are pasted into text boxes.
+    - *Mitigation*: Sanitize all text inputs using `dompurify` before rendering on Canvas.
+- **API Keys**: Gemini API key is currently managed via `useEditorStore` or environment variables.
+    - *Check*: Ensure `VITE_GEMINI_API_KEY` is not exposed in client-side bundles if possible (use Backend Proxy if needed, but current Local-First architecture accepts client-side key as trade-off).
+
+## 4. Action Plan
+1.  **Refactor**: Extract `Layout.tsx` from [App.tsx](file:///c:/dev/docueditor/src/App.tsx).
+2.  **Optimize**: Add `Suspense` to [AgentOffice3D](file:///c:/dev/docueditor/src/components/AgentOffice3D.tsx#235-275).
+3.  **Harden**: Add `dompurify` to `text` processing in `ocrService` or [Preview](file:///c:/dev/docueditor/src/components/Preview.tsx#4-67).

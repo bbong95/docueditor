@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DocuEditor Deliverables Archive</title>
+    <style>
+      :root {
+        --bg-1: #f4f1eb;
+        --bg-2: #f8f6f2;
+        --bg-3: #fefdfc;
+        --card: rgba(255, 255, 255, 0.84);
+        --line: rgba(22, 22, 22, 0.12);
+        --text: #1d2733;
+        --muted: #5c6673;
+        --muted-2: #7f8894;
+        --brand: #8c5e33;
+        --brand-2: #d9a95f;
+        --ok: #2f9e55;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 8% 18%, rgba(216, 183, 140, 0.16), transparent 44%),
+          radial-gradient(circle at 92% 7%, rgba(140, 94, 51, 0.16), transparent 36%),
+          linear-gradient(145deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+        min-height: 100vh;
+      }
+
+      .frame {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 32px 20px 48px;
+      }
+
+      .hero {
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: linear-gradient(130deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.65));
+        backdrop-filter: blur(2px);
+        padding: 34px;
+        box-shadow: 0 16px 45px rgba(17, 27, 36, 0.08);
+      }
+
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.8rem, 4.2vw, 3.1rem);
+        letter-spacing: -0.02em;
+        color: #192230;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 840px;
+      }
+
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(110px, 1fr));
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .meta-box {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 12px;
+        padding: 12px;
+      }
+
+      .meta-box strong {
+        display: block;
+        font-size: 1.4rem;
+      }
+
+      .meta-box span {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .panel {
+        margin-top: 18px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--card);
+        padding: 18px;
+      }
+
+      .toolbar {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 0.9fr;
+        gap: 12px;
+      }
+
+      .toolbar input,
+      .toolbar select {
+        appearance: none;
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px;
+        background: #fff;
+        color: var(--text);
+      }
+
+      .toolbar .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-content: center;
+      }
+
+      .chip {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 0.87rem;
+        cursor: pointer;
+        background: #fff;
+        color: var(--muted-2);
+      }
+
+      .chip.active {
+        border-color: rgba(140, 94, 51, 0.34);
+        color: #5f3a15;
+        background: rgba(217, 169, 95, 0.16);
+      }
+
+      .toolbar-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .toolbar-actions button {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 12px;
+        background: #fff;
+        cursor: pointer;
+      }
+
+      .results {
+        margin-top: 16px;
+        min-height: 360px;
+      }
+
+      .row {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        padding: 12px;
+        margin-bottom: 8px;
+        display: grid;
+        grid-template-columns: 68px 1fr auto;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .thumb {
+        width: 64px;
+        height: 64px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #7b5a33;
+        background: #f8f7f4;
+        font-weight: 700;
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name {
+        margin: 0;
+        font-size: 1.04rem;
+      }
+
+      .meta-line {
+        color: var(--muted);
+        font-size: 0.86rem;
+        margin: 6px 0;
+      }
+
+      .snippet {
+        color: var(--muted-2);
+        margin: 0;
+        line-height: 1.45;
+        font-size: 0.9rem;
+        max-width: 70ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .actions a,
+      .actions button {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: var(--text);
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.84rem;
+      }
+
+      .actions a.primary,
+      .actions button.primary {
+        border-color: rgba(140, 94, 51, 0.4);
+        background: rgba(217, 169, 95, 0.14);
+      }
+
+      .portal {
+        margin-top: 16px;
+      }
+
+      .portal-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 8px;
+      }
+
+      .portal-item {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px;
+        background: #fff;
+      }
+
+      .portal-item b {
+        display: block;
+      }
+
+      .ok {
+        color: var(--ok);
+      }
+
+      .note {
+        color: var(--muted);
+      }
+
+      .empty {
+        border: 1px dashed var(--line);
+        border-radius: 10px;
+        text-align: center;
+        padding: 40px;
+        color: var(--muted);
+      }
+
+      @media (max-width: 960px) {
+        .meta {
+          grid-template-columns: repeat(2, minmax(110px, 1fr));
+        }
+
+        .toolbar {
+          grid-template-columns: 1fr;
+        }
+
+        .row {
+          grid-template-columns: 60px 1fr;
+          row-gap: 10px;
+        }
+
+        .actions {
+          grid-column: 1 / -1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <section class="hero">
+        <h1>DocuEditor Deliverables Archive</h1>
+        <p>
+          파일 탐색 수준의 정적 아카이브 페이지입니다. 포털 핵심 13개 항목과 전체 100개 산출물을
+          동일한 기준으로 점검하고, 검색/카테고리/정렬/썸네일/열기·다운로드 동작을 제공합니다.
+        </p>
+        <div class="meta">
+          <div class="meta-box"><strong id="artifactCount">-</strong><span>총 산출물</span></div>
+          <div class="meta-box"><strong id="docCount">-</strong><span>문서</span></div>
+          <div class="meta-box"><strong id="diagCount">-</strong><span>다이어그램</span></div>
+          <div class="meta-box"><strong id="imgCount">-</strong><span>이미지</span></div>
+        </div>
+      </section>
+
+      <section class="panel" id="portalPanel">
+        <h2>Deliverables Portal (13개 항목) 정합성</h2>
+        <div class="portal-grid" id="portalChecks"></div>
+      </section>
+
+      <section class="panel" id="docPanel">
+        <h2>전체 산출물 브라우저</h2>
+        <div class="toolbar">
+          <input id="searchInput" type="search" placeholder="이름, 경로, 스니펫으로 검색" />
+          <select id="sortSelect" aria-label="정렬 방식">
+            <option value="name_asc">이름 오름차순</option>
+            <option value="name_desc">이름 내림차순</option>
+            <option value="size_desc">크기 큰 순</option>
+            <option value="size_asc">크기 작은 순</option>
+            <option value="updated_desc">최신순</option>
+            <option value="updated_asc">오래된 순</option>
+          </select>
+          <div class="chips" id="categoryChips" aria-label="카테고리 필터"></div>
+          <div class="toolbar-actions">
+            <button id="resetFilters">필터 초기화</button>
+          </div>
+        </div>
+
+        <div class="toolbar" style="margin-top: 10px;">
+          <div>
+            표시: <strong id="visibleCount">0</strong> / <span id="totalCount">0</span>
+          </div>
+          <div id="statusBar" class="note"></div>
+        </div>
+
+        <div class="results" id="results"></div>
+      </section>
+    </div>
+
+    <script src="./index-data.js"></script>
+    <script>
+      const state = {
+        query: '',
+        category: 'all',
+        sort: 'name_asc'
+      };
+
+      const isFileScheme = location.protocol === 'file:';
+      const artifactBase = isFileScheme ? '..' : '';
+
+      const categoryLabel = {
+        '문서': 'Document',
+        '다이어그램': 'Diagram',
+        '이미지': 'Image',
+        '기타': 'Other'
+      };
+
+      function normalizeText(value = '') {
+        return String(value).toLowerCase();
+      }
+
+      function isImageExt(ext) {
+        return ['.png', '.jpg', '.jpeg', '.webp', '.gif', '.bmp', '.svg'].includes(normalizeText(ext));
+      }
+
+      function resolvePath(path) {
+        if (!path) return '';
+        if (path.startsWith('/artifacts/')) {
+          return `${artifactBase}${path}`;
+        }
+        return path;
+      }
+
+      function formatSize(sizeKB) {
+        const value = Number(sizeKB || 0);
+        if (!Number.isFinite(value)) return '-';
+        return `${value.toFixed(2)} KB`;
+      }
+
+      function formatUpdated(updated) {
+        return updated || '-';
+      }
+
+      function getSortedItems(items) {
+        const sorted = [...items];
+        switch (state.sort) {
+          case 'name_desc':
+            sorted.sort((a, b) => normalizeText(b.name).localeCompare(normalizeText(a.name)));
+            break;
+          case 'size_asc':
+            sorted.sort((a, b) => (a.sizeKB || 0) - (b.sizeKB || 0));
+            break;
+          case 'size_desc':
+            sorted.sort((a, b) => (b.sizeKB || 0) - (a.sizeKB || 0));
+            break;
+          case 'updated_desc':
+            sorted.sort((a, b) => normalizeText(b.updated).localeCompare(normalizeText(a.updated)));
+            break;
+          case 'updated_asc':
+            sorted.sort((a, b) => normalizeText(a.updated).localeCompare(normalizeText(b.updated)));
+            break;
+          default:
+            sorted.sort((a, b) => normalizeText(a.name).localeCompare(normalizeText(b.name)));
+        }
+        return sorted;
+      }
+
+      function renderStatus(data) {
+        const byCategory = data.byCategory || {};
+        document.getElementById('artifactCount').textContent = String(data.artifactCount || 0);
+        document.getElementById('docCount').textContent = String(byCategory['문서'] || 0);
+        document.getElementById('diagCount').textContent = String(byCategory['다이어그램'] || 0);
+        document.getElementById('imgCount').textContent = String(byCategory['이미지'] || 0);
+
+        const portalChecks = data.portalChecks || [];
+        const portalRoot = document.getElementById('portalChecks');
+        portalRoot.innerHTML = '';
+        if (!portalChecks.length) {
+          portalRoot.textContent = 'Portal 데이터가 없습니다.';
+          return;
+        }
+        for (const item of portalChecks) {
+          const el = document.createElement('article');
+          el.className = 'portal-item';
+          el.innerHTML = `
+            <b>${item.title}</b>
+            <div class="note">${item.path}</div>
+            <div class="ok">${item.status}</div>
+            <div class="note">${item.note || ''}</div>
+          `;
+          portalRoot.appendChild(el);
+        }
+      }
+
+      function createCategoryChips(data) {
+        const chipsRoot = document.getElementById('categoryChips');
+        const unique = ['all', ...new Set((data.items || []).map((item) => item.category || '기타').filter(Boolean))];
+        chipsRoot.innerHTML = '';
+        for (const key of unique) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'chip' + (state.category === key ? ' active' : '');
+          button.textContent = key === 'all' ? '전체' : `${categoryLabel[key] || key}`;
+          button.dataset.category = key;
+          button.addEventListener('click', () => {
+            state.category = key;
+            renderItems();
+            Array.from(chipsRoot.children).forEach((n) => {
+              n.classList.toggle('active', n.dataset.category === state.category);
+            });
+          });
+          chipsRoot.appendChild(button);
+        }
+      }
+
+      function renderItems() {
+        const data = window.__DOC_DATA__;
+        const items = data.items || [];
+        const q = normalizeText(state.query);
+
+        const filtered = items.filter((item) => {
+          if (state.category !== 'all' && item.category !== state.category) return false;
+          if (!q) return true;
+          const haystack = [item.name, item.path, item.snippet]
+            .map((v) => normalizeText(v))
+            .join(' ');
+          return haystack.includes(q);
+        });
+
+        const sorted = getSortedItems(filtered);
+
+        document.getElementById('visibleCount').textContent = String(sorted.length);
+        document.getElementById('totalCount').textContent = String(items.length);
+        document.getElementById('statusBar').textContent = `${sorted.length}개 항목이 검색 조건에 일치합니다.`;
+
+        const results = document.getElementById('results');
+        results.innerHTML = '';
+
+        if (!sorted.length) {
+          results.innerHTML = '<div class="empty">조건에 맞는 산출물이 없습니다.</div>';
+          return;
+        }
+
+        for (const item of sorted) {
+          const row = document.createElement('article');
+          row.className = 'row';
+          const preview = resolvePath(item.path);
+          const iconText = String(item.ext || '').replace('.', '').toUpperCase() || 'FILE';
+
+          const thumb = document.createElement('div');
+          thumb.className = 'thumb';
+          if (isImageExt(item.ext || '')) {
+            const image = document.createElement('img');
+            image.src = preview;
+            image.alt = item.name;
+            image.loading = 'lazy';
+            image.onerror = () => {
+              thumb.textContent = iconText;
+            };
+            thumb.appendChild(image);
+          } else {
+            thumb.textContent = iconText;
+          }
+
+          const details = document.createElement('div');
+          details.innerHTML = `
+            <p class="name">${item.name}</p>
+            <p class="meta-line">${item.path} · ${formatUpdated(item.updated)} · ${categoryLabel[item.category] || item.category} · ${formatSize(item.sizeKB)}</p>
+            <p class="snippet">${item.snippet || ''}</p>
+          `;
+
+          const actions = document.createElement('div');
+          actions.className = 'actions';
+
+          const openAction = document.createElement('a');
+          openAction.href = preview;
+          openAction.target = '_blank';
+          openAction.rel = 'noopener noreferrer';
+          openAction.className = 'primary';
+          openAction.textContent = '열기';
+
+          const downloadAction = document.createElement('a');
+          downloadAction.href = preview;
+          downloadAction.download = item.name;
+          downloadAction.textContent = '다운로드';
+
+          actions.appendChild(openAction);
+          actions.appendChild(downloadAction);
+
+          row.appendChild(thumb);
+          row.appendChild(details);
+          row.appendChild(actions);
+          results.appendChild(row);
+        }
+      }
+
+      function boot(data) {
+        if (!data || !Array.isArray(data.items)) {
+          document.getElementById('statusBar').textContent = '데이터를 불러오지 못했습니다.';
+          return;
+        }
+        renderStatus(data);
+        createCategoryChips(data);
+        renderItems();
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', (e) => {
+          state.query = e.target.value || '';
+          renderItems();
+        });
+
+        const sortSelect = document.getElementById('sortSelect');
+        sortSelect.addEventListener('change', (e) => {
+          state.sort = e.target.value;
+          renderItems();
+        });
+
+        document.getElementById('resetFilters').addEventListener('click', () => {
+          state.query = '';
+          state.category = 'all';
+          state.sort = 'name_asc';
+          searchInput.value = '';
+          sortSelect.value = 'name_asc';
+          createCategoryChips(data);
+          renderItems();
+        });
+      }
+
+      if (typeof window.__DOC_DATA__ === 'undefined') {
+        document.getElementById('statusBar').textContent = 'index-data.js가 로드되지 않았습니다.';
+      } else {
+        boot(window.__DOC_DATA__);
+      }
+    </script>
+  </body>
+</html>

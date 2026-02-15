@@ -1,0 +1,29 @@
+[
+    {
+        "id": "task-002",
+        "team": "explore",
+        "status": "completed",
+        "priority": "high",
+        "description": "Analyze System Architecture diagram rendering issue (Black Box bug)",
+        "created_at": "2026-02-15T11:40:00",
+        "completed_at": "2026-02-15T12:55:00"
+    },
+    {
+        "id": "task-004",
+        "team": "verify",
+        "status": "completed",
+        "priority": "critical",
+        "description": "Run regression test on PDF upload and progress indicator",
+        "created_at": "2026-02-15T11:40:00",
+        "completed_at": "2026-02-15T12:58:30"
+    },
+    {
+        "id": "task-005",
+        "team": "auto",
+        "status": "completed",
+        "priority": "medium",
+        "description": "Generate QA Report and prepare for deployment",
+        "created_at": "2026-02-15T12:59:00",
+        "completed_at": "2026-02-15T13:02:00"
+    }
+]

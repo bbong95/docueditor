@@ -1,0 +1,228 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "main_title",
+      "type": "text",
+      "x": 50,
+      "y": 50,
+      "text": "데이터 모델 (Data Model)",
+      "fontSize": 32,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "strokeColor": "#0f172a",
+      "width": 800,
+      "height": 40
+    },
+    {
+      "id": "e_project",
+      "type": "rectangle",
+      "x": 400,
+      "y": 150,
+      "width": 300,
+      "height": 150,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#f1f5f9",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "h_proj",
+      "type": "text",
+      "x": 450,
+      "y": 167,
+      "width": 200,
+      "height": 26,
+      "text": "Project",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "b_proj",
+      "type": "text",
+      "x": 425,
+      "y": 209.2,
+      "width": 250,
+      "height": 41.6,
+      "text": "- pages: Page[]\n- scale: number",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "e_page",
+      "type": "rectangle",
+      "x": 150,
+      "y": 400,
+      "width": 300,
+      "height": 150,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#eff6ff",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "h_page",
+      "type": "text",
+      "x": 200,
+      "y": 417,
+      "width": 200,
+      "height": 26,
+      "text": "Page",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "b_page",
+      "type": "text",
+      "x": 175,
+      "y": 459.2,
+      "width": 250,
+      "height": 41.6,
+      "text": "- id: UUID\n- elements: Element[]",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "e_elem",
+      "type": "rectangle",
+      "x": 750,
+      "y": 400,
+      "width": 300,
+      "height": 150,
+      "strokeColor": "#0f172a",
+      "backgroundColor": "#dcfce7",
+      "fillStyle": "hachure",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "roundness": {
+        "type": 3
+      }
+    },
+    {
+      "id": "h_elem",
+      "type": "text",
+      "x": 800,
+      "y": 417,
+      "width": 200,
+      "height": 26,
+      "text": "Element",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "b_elem",
+      "type": "text",
+      "x": 775,
+      "y": 459.2,
+      "width": 250,
+      "height": 41.6,
+      "text": "- type: text|rect\n- x, y, w, h",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+      "strokeColor": "#0f172a",
+      "roughness": 1
+    },
+    {
+      "id": "r1",
+      "type": "arrow",
+      "x": 550,
+      "y": 300,
+      "width": 250,
+      "height": 100,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          -250,
+          100
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "r2",
+      "type": "arrow",
+      "x": 300,
+      "y": 550,
+      "width": 600,
+      "height": 0,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          600,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    },
+    {
+      "id": "r3",
+      "type": "arrow",
+      "x": 450,
+      "y": 475,
+      "width": 300,
+      "height": 0,
+      "strokeColor": "#64748b",
+      "strokeWidth": 2,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          300,
+          0
+        ]
+      ],
+      "endArrowhead": "arrow",
+      "roughness": 1
+    }
+  ],
+  "appState": {
+    "viewBackgroundColor": "#ffffff",
+    "gridSize": 20
+  }
+}

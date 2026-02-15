@@ -1,0 +1,38 @@
+flowchart TB
+    subgraph Client ["Client (Browser)"]
+        UI[("React UI (Vite)")]
+        Store[("Zustand Store")]
+        Canvas[("Interactive Canvas")]
+    end
+
+    subgraph Core ["Core Logic"]
+        OCR["OCR Service\n(Tesseract.js / Gemini)"]
+        PDF["PDF Processing\n(pdfjs-dist)"]
+        Export["Export Engine\n(jsPDF / html2canvas)"]
+    end
+
+    subgraph Agents ["Agent Squad"]
+        Arch[("Architect\n(Supervisor)")]
+        Des[("Designer\n(UI/UX)")]
+        Dev[("Developer\n(Logic)")]
+        Ana[("Analyst\n(QA/Report)")]
+    end
+
+    User((User)) -->|Uploads PDF/Img| UI
+    UI -->|State Updates| Store
+    UI -->|Render| Canvas
+    
+    Store -->|Trigger| Agents
+    Agents -->|Animation/Status| UI
+    
+    UI -->|Process Request| PDF
+    PDF -->|Images| OCR
+    OCR -->|Text Data| Store
+    
+    User -->|Edit/Style| Canvas
+    User -->|Export| Export
+    
+    Export -->|Generate| PDF_File[("PDF / Image File")]
+    
+    Ana -.->|Verify| PDF_File
+    Ana -.->|Generate| Report[("Quality Dashboard")]
